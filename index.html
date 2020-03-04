@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="icon" href="mealfinder.ico">
+    <style>
+        @media (min-width: 576px) {
+            .card-columns {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .card-columns {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .card-columns {
+                column-count: 4;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .card-columns {
+                column-count: 5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center mt-3">
+                <h1>
+                    <span badge badge-success rounded-circle>
+                        <img alt="logo" src="mealfinder.ico" height="45" width="45" />
+                    </span>
+                    Meal Finder
+                </h1>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12 justify-content-center form-inline">
+                <form id="frmSearch" action="#">
+                    <input class="form-control text-center" type="text" id="txtSearch" placeholder="Enter a Meal"
+                        required />
+                    <input class="btn-info form-control" type="submit" value="Search" />
+                    <button type="button" class="btn-success form-control" onclick="seachRandomMeal()">Random</button>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#divCollapseResult">
+                                Search Result
+                            </a>
+                        </div>
+                        <div id="divCollapseResult" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <p id="pSearchResult" class="text-danger">No Result Available</p>
+                                </div>
+                                <div class="card-columns" id="divSearchResult"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <a id="aResult" class="card-link" data-toggle="collapse" href="#divCollapseMeal">
+                                Meal
+                            </a>
+                        </div>
+                        <div id="divCollapseMeal" class="collapse d-none" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card">
+                                    <img id="imgResult" class="img-fluid" />
+                                    <div class="card-body">
+                                        <h1 id="pMealName" class="text-center"></h1>
+                                        <h4>Category : <span id="pCategory"></span></h4>
+                                        <h4>Area : <span id="pArea"></span></h4>
+                                        <p class="font-weight-bold">Ingredients :</p>
+                                        <p id="pIngredients" class="text-justify"></p>
+                                        <p class="font-weight-bold">Ingstruction :</p>
+                                        <p id="pInstruction" class="text-justify"></p>
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe id="iframeVideo" class="embed-responsive-item"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
